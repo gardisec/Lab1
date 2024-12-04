@@ -74,7 +74,7 @@ void treeInsert(const request& request) {// TINSERT name value
 
     }
     if (!isDone){
-        tempLine = "#TREE;" + name + ';' + value + ",";
+        tempLine = "#TREE;" + name + ';' + value + "," + "nullptr,nullptr,";
         buffer.push_back(tempLine);
     }
     file.close();

@@ -15,13 +15,6 @@
 
 using namespace std;
 
-
-
-structures getType(const string& fName);
-
-
-string delFirstLetter(const string &input);
-
 structures structRequest(const char& input);
 commands commandRequest(const string& request);
 request getRequest(int argc, char *argv[]);

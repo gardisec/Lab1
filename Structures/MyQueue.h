@@ -15,11 +15,35 @@ struct MyQueue{
 
     MyQueue() : head(nullptr), tail(nullptr) {}
 
-    void push(T val);
-    void pop();
-    T front();
+    void push(T val){// вставляем в хвост
+        Node<T>* newElement = new Node{val};
+        if (this->head == nullptr) {
+            this->head = newElement;
+            this->tail = newElement;
+        }
+        else {
+            this->tail->next = newElement;
+            this->tail = newElement;
+        }
 
-    bool empty();
+    }
+    void pop(){ //удаляем с головы
+        if (this->head == nullptr) return;
+        auto tempHead = this->head;
+        this->head = this->head->next;
+        delete tempHead;
+    }
+    T front(){
+        return this->head->value;
+    }
+
+    bool empty(){
+        if (this ->head == nullptr){
+            return true;
+        }else{
+            return false;
+        }
+    }
     friend ostream& operator<<(ostream& os, const MyQueue<T>& que) {
         Node<T>* curr = que.head;
         while (curr != nullptr){
@@ -33,11 +57,6 @@ struct MyQueue{
     }
 
 };
-
-
-template struct MyQueue<int>;
-template struct MyQueue<string>;
-template struct MyQueue<Tree*>;
 
 
 MyQueue<string> splitToQueue(const string &input, char delimiter = ' ');

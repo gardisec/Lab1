@@ -9,7 +9,7 @@ void printHash(const request& request) {
         while(getline(file, tempLine)) {
             setting.getInfo(tempLine);
             if (setting.type == "#HASHMAP") {
-                hashMap currVar = hMFromStr(setting.data);
+                hashMap currVar = hashFromStr(setting.data);
                 cout << currVar.Get() << endl;
             }
         }
@@ -24,7 +24,7 @@ void printHash(const request& request) {
             setting.getInfo(tempLine);
             if (setting.name == name && setting.type == "#HASHMAP") {
                 isDone = true;
-                hashMap currVar = hMFromStr(setting.data);
+                hashMap currVar = hashFromStr(setting.data);
                 cout << currVar.Get() << endl;
             }
         }
@@ -57,9 +57,9 @@ void hashPush(const request& request){// HSET name key value
         setting.getInfo(tempLine);
         if (setting.name == name && !isDone && setting.type == "#HASHMAP"){
             isDone = true;
-            hashMap currentValues = hMFromStr(setting.data);
+            hashMap currentValues = hashFromStr(setting.data);
             currentValues.insert(key, value);
-            tempLine = setting.type + ";" + setting.name + ';' + strFromHM(currentValues);
+            tempLine = setting.type + ";" + setting.name + ';' + strFromHash(currentValues);
             buffer.push_back(tempLine);
         }
         else {
@@ -69,7 +69,7 @@ void hashPush(const request& request){// HSET name key value
     if (!isDone){
         hashMap newVar;
         newVar.insert(key, value);
-        tempLine = "#HASHMAP;" + name + ';' + strFromHM(newVar);
+        tempLine = "#HASHMAP;" + name + ';' + strFromHash(newVar);
         buffer.push_back(tempLine);
     }
     file.close();
@@ -107,9 +107,9 @@ void hashDel(const request& request){//HDEL name key
         setting.getInfo(tempLine);
         if (setting.name == name && setting.type == "#HASHMAP"){
             isDone = true;
-            hashMap currentValue = hMFromStr(setting.data);
+            hashMap currentValue = hashFromStr(setting.data);
             currentValue.del(key);
-            tempLine = setting.type + ";" + setting.name + ';' + strFromHM(currentValue);
+            tempLine = setting.type + ";" + setting.name + ';' + strFromHash(currentValue);
 
             if (currentValue.pairCount != 0){
                 buffer.push_back(tempLine);
@@ -153,7 +153,7 @@ void hashGet(const request& request){// HGET name key
         if (setting.name == name && setting.type == "#HASHMAP") {
 
             isDone = true;
-            hashMap currVar = hMFromStr(setting.data);
+            hashMap currVar = hashFromStr(setting.data);
             if (currVar.pairCount == 0) {
                 cout << "Empty :(" << endl;
             }

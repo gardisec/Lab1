@@ -118,7 +118,7 @@ Pair hashMap::Get() const {
 
 
 
-hashMap hMFromStr(const string& line){
+hashMap hashFromStr(const string& line){
     arr<string> pairs = splitToArr(line, "_WALL_");
     hashMap output;
     for (size_t i = 0; i < pairs.size; ++i){
@@ -128,7 +128,7 @@ hashMap hMFromStr(const string& line){
 }
 
 
-string strFromHM(hashMap input){
+string strFromHash(hashMap input){
     string output;
     Pair pair1;
     while (input.pairCount != 0){

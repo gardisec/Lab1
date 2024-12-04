@@ -23,16 +23,14 @@ void Tree ::printTree() {
     cout << endl;
 }
 
-// Вставка элемента в бинарное дерево
 void Tree :: insertToTree(const string& value) {
     MyQueue<Tree*> que;
-    que.push(this); // Начинаем с текущего узла.
+    que.push(this);
 
     while (!que.empty()) {
         Tree* current = que.front();
         que.pop();
 
-        // Проверяем левый потомок.
         if (!current->left) {
             current->left = new Tree(value);
             return;
@@ -40,7 +38,6 @@ void Tree :: insertToTree(const string& value) {
             que.push(current->left);
         }
 
-        // Проверяем правый потомок.
         if (!current->right) {
             current->right = new Tree(value);
             return;
@@ -51,15 +48,12 @@ void Tree :: insertToTree(const string& value) {
 }
 
 bool search(const string& value) {
-    // Преобразуем строку в дерево.
     Tree* root = treeFromString(value);
 
-    // Если дерево пустое, возвращаем false.
     if (!root){
         return false;
     }
 
-    // Выполняем поиск значения в дереве.
     MyQueue<Tree*> que;
     que.push(root);
 
@@ -68,7 +62,7 @@ bool search(const string& value) {
         que.pop();
 
         if (current->key == value) {
-            return true; // Найдено значение.
+            return true;
         }
 
         if (current->left){
@@ -78,11 +72,9 @@ bool search(const string& value) {
             que.push(current->right);
         }
     }
-    return false; // Значение не найдено.
+    return false;
 }
 
-
-// Функция для вычисления высоты дерева.
 int maxDepth(Tree* root) {
     if (!root){
         return 0;
@@ -90,7 +82,7 @@ int maxDepth(Tree* root) {
     return 1 + max(maxDepth(root->left), maxDepth(root->right));
 }
 
-// Функция для подсчета всех узлов дерева (не nullptr).
+
 int countNodes(Tree* root) {
     if (!root){
         return 0;
@@ -98,32 +90,31 @@ int countNodes(Tree* root) {
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
-// Проверка, является ли дерево полным бинарным.
 bool isCompleteBinaryTree(Tree* root) {
     if (!root){
-        return true; // Пустое дерево является полным.
+        return true;
     }
 
-    int depth = maxDepth(root);          // Максимальная глубина дерева.
-    int totalNodes = countNodes(root);   // Общее количество узлов.
+    int depth = maxDepth(root);
+    int totalNodes = countNodes(root);
 
-    // Максимально возможное количество узлов для данной глубины.
+
     int maxNodes = pow(2, depth) - 1;
 
-    // Дерево полно, если общее количество узлов соответствует \(2^h - 1\).
+
     return totalNodes == maxNodes;
 }
 
 
 Tree* treeFromString(const string& input) {
-    // Разбиваем строку по запятым
+
     arr<string> elements = splitToArr(input, ',');
 
     if (elements.size == 0 || elements[0] == "nullptr"){
         return nullptr;
     }
 
-    // Создаем корень дерева
+
     auto root = new Tree(elements[0]);
     MyQueue<Tree*> que;
     que.push(root);
@@ -133,14 +124,13 @@ Tree* treeFromString(const string& input) {
         Tree* current = que.front();
         que.pop();
 
-        // Левый потомок
+
         if (i < elements.size && elements[i] != "nullptr") {
             current->left = new Tree(elements[i]);
             que.push(current->left);
         }
         i++;
 
-        // Правый потомок
         if (i < elements.size && elements[i] != "nullptr") {
             current->right = new Tree(elements[i]);
             que.push(current->right);
@@ -154,7 +144,7 @@ Tree* treeFromString(const string& input) {
 string treeToString(Tree* root) {
     if (!root){
         return "";
-    }  // Если дерево пустое, возвращаем пустую строку.
+    }
 
     MyQueue<Tree*> que;
     que.push(root);
@@ -166,11 +156,11 @@ string treeToString(Tree* root) {
         que.pop();
 
         if (current) {
-            result += current->key + ","; // Добавляем значение текущего узла.
-            que.push(current->left);        // Добавляем левого потомка в очередь.
-            que.push(current->right);       // Добавляем правого потомка в очередь.
+            result += current->key + ",";
+            que.push(current->left);
+            que.push(current->right);
         } else {
-            result += "nullptr,"; // Если узел отсутствует, добавляем "null".
+            result += "nullptr,";
         }
     }
 

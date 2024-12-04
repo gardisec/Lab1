@@ -40,8 +40,8 @@ struct hashMap {
 
 };
 
-hashMap hMFromStr(const string& line);
-string strFromHM(hashMap input);
+hashMap hashFromStr(const string& line);
+string strFromHash(hashMap input);
 
 
 
