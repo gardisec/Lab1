@@ -1,3 +1,23 @@
 # ninja log v6
-0	16	7550098830514498	build.ninja	e1f5e3e9f7769553
+157	4265	7550349150305341	CMakeFiles/Lab1.dir/Structures/list.cpp.obj	e7fc52c57d72d77b
+4	473	7550349226231606	build.ninja	353911c172726283
+187	3625	7550349150605493	CMakeFiles/Lab1.dir/Structures/Pair.cpp.obj	4e9122113918120
 442	514	1733100307236784749	Lab1	8877dc9aca6018f9
+38	2500	7550321562896362	CMakeFiles/Lab1.dir/Structures/queue.cpp.obj	2f280ab345d140c5
+33	4277	7550349149064407	CMakeFiles/Lab1.dir/Structures/arr.cpp.obj	160eb65eba21befd
+67	5249	7550349149404406	CMakeFiles/Lab1.dir/Commands/queueCommands.cpp.obj	390fa855ab2cdf21
+55	3669	7550349149274930	CMakeFiles/Lab1.dir/Structures/Stack.cpp.obj	1b11af85e19f2f6d
+13	3741	7550349148854820	CMakeFiles/Lab1.dir/main.cpp.obj	b5f0dcb20051d5dd
+43	4726	7550349149164398	CMakeFiles/Lab1.dir/Commands/stackCommands.cpp.obj	84f4f8ca1a3f15fe
+23	4842	7550349148954396	CMakeFiles/Lab1.dir/Commands/arrCommands.cpp.obj	acfdf9fb8af24128
+175	4704	7550349150480207	CMakeFiles/Lab1.dir/Commands/listCommands.cpp.obj	3f4a7b7cfd0c9ee
+3741	6605	7550349186144209	CMakeFiles/Lab1.dir/helpFuncs.cpp.obj	20d169765175c1c2
+49	3257	7550347204973290	CMakeFiles/Lab1.dir/Structures/ComplTree.cpp.obj	707d74a10eb76595
+23	2273	7550340308147129	CMakeFiles/Lab1.dir/Structures/Queue.cpp.obj	a1f7073c4bdeade6
+3626	6394	7550349184994211	CMakeFiles/Lab1.dir/Structures/hashMap.cpp.obj	dc183a1cea387be4
+69	3303	7550347205183285	CMakeFiles/Lab1.dir/Commands/treeCommands.cpp.obj	ac50a8233c1efcf7
+3669	6597	7550349185424214	CMakeFiles/Lab1.dir/Commands/hashCommands.cpp.obj	4321666affa6087d
+3869	4288	7550313620207410	Lab1.exe	ed3ecc7d2e0a5389
+80	4865	7550349149524399	CMakeFiles/Lab1.dir/Structures/MyQueue.cpp.obj	74a7c8043a2c85ca
+32	3295	7550350034623050	CMakeFiles/Lab1.dir/Structures/MyQueue.cpp.obj	74a7c8043a2c85ca
+22	3489	7550350034513035	CMakeFiles/Lab1.dir/Commands/queueCommands.cpp.obj	390fa855ab2cdf21

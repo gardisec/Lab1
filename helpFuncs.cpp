@@ -28,8 +28,9 @@ commands commandRequest(const string& request){
     if (request == "HPRINT") return HPRINT;
 
     if (request == "TINSERT") return TINSERT;
-    if (request == "TDEL") return TDEL;
-    if (request == "TGET") return TGET;
+    if (request == "TCOMPLETE") return TCOMPLETE;
+    if (request == "TSEARCH") return TSEARCH;
+    if (request == "TPRINT") return TPRINT;
 
     throw runtime_error("This command isn't exist");
 }
@@ -37,10 +38,10 @@ commands commandRequest(const string& request){
 structures structRequest(const char& input){
     if (input == 'M') return Array;
     if (input == 'L') return list;
-    if (input == 'Q') return Queue;
+    if (input == 'Q') return MYQueue;
     if (input == 'S') return stack;
     if (input == 'H') return hashmap;
-    if (input == 'T') return Tree;
+    if (input == 'T') return tree;
 
 
     throw runtime_error("This structure is not exist");
@@ -50,10 +51,10 @@ structures structRequest(const char& input){
 structures getType(const string& typeInFile){
     if (typeInFile == "#ARRAY") return Array;
     if (typeInFile == "#LIST") return list;
-    if (typeInFile == "#QUEUE") return Queue;
+    if (typeInFile == "#QUEUE") return MYQueue;
     if (typeInFile == "#STACK") return stack;
     if (typeInFile == "#HASHMAP") return hashmap;
-    if (typeInFile == "#TREE") return Tree;
+    if (typeInFile == "#TREE") return tree;
     throw runtime_error("This structure isn't exist");
 }
 

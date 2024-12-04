@@ -52,12 +52,6 @@ void arr<T>::del(size_t index) {
     size--;
 }
 
-template<typename T>
-void arr<T>::clear() {
-    delete this->data;
-}
-
-
 arr<string> splitToArr(const string &input, const char delimiter){
     string word;
     arr<string> output;

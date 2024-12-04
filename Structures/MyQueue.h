@@ -4,22 +4,23 @@
 #include <iostream>
 #include "Node.h"
 #include "ComplTree.h"
+
+
 using namespace std;
 
 template<typename T>
-struct queue{
+struct MyQueue{
     Node<T>* head;
     Node<T>* tail;
-    int size;
 
-    queue() : head(nullptr), tail(nullptr), size(0) {}
+    MyQueue() : head(nullptr), tail(nullptr) {}
 
     void push(T val);
     void pop();
-    T getFirst();
-    void clear();
+    T front();
 
-    friend ostream& operator<<(ostream& os, const queue<T>& que) {
+    bool empty();
+    friend ostream& operator<<(ostream& os, const MyQueue<T>& que) {
         Node<T>* curr = que.head;
         while (curr != nullptr){
             os << "[" << curr->value << "]";
@@ -34,12 +35,12 @@ struct queue{
 };
 
 
-template struct queue<int>;
-template struct queue<string>;
-template struct queue<TreeNode*>;
+template struct MyQueue<int>;
+template struct MyQueue<string>;
+template struct MyQueue<Tree*>;
 
 
-queue<string> splitToQueue(const string &input, char delimiter = ' ');
-string unSplitQueue(const queue<string>& input, char delimiter = ' ');
+MyQueue<string> splitToQueue(const string &input, char delimiter = ' ');
+string unSplitQueue(const MyQueue<string>& input, char delimiter = ' ');
 
 #endif // QUEUE_H

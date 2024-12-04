@@ -7,7 +7,8 @@
 using namespace std;
 
 void treeInsert(const request& request);
-void treeDel(const request& request);
-void treeGet(const request& request);
+void treeComplete(const request& request);
+void treeSearch(const request& request);
+void printTree(const request& request);
 
 #endif

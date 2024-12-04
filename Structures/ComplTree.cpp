@@ -1,108 +1,179 @@
 #include "ComplTree.h"
-#include "queue.h"
-#include "arr.h"
-bool CBTree :: check(TreeNode *root)
-{
-    //traversing the nodes of the subtree to check any node with balance factor > 0
-    if(root == nullptr)
+
+
+void Tree ::printTree() {
+    if (!this) return;
+
+    MyQueue<Tree*> que;
+    que.push(this);
+
+    while (!que.empty()) {
+        Tree* current = que.front();
+        que.pop();
+
+        cout << current->key << " ";
+
+        if (current->left){
+            que.push(current->left);
+        }
+        if (current->right){
+            que.push(current->right);
+        }
+    }
+    cout << endl;
+}
+
+// Вставка элемента в бинарное дерево
+void Tree :: insertToTree(const string& value) {
+    MyQueue<Tree*> que;
+    que.push(this); // Начинаем с текущего узла.
+
+    while (!que.empty()) {
+        Tree* current = que.front();
+        que.pop();
+
+        // Проверяем левый потомок.
+        if (!current->left) {
+            current->left = new Tree(value);
+            return;
+        } else {
+            que.push(current->left);
+        }
+
+        // Проверяем правый потомок.
+        if (!current->right) {
+            current->right = new Tree(value);
+            return;
+        } else {
+            que.push(current->right);
+        }
+    }
+}
+
+bool search(const string& value) {
+    // Преобразуем строку в дерево.
+    Tree* root = treeFromString(value);
+
+    // Если дерево пустое, возвращаем false.
+    if (!root){
         return false;
-    bool x = check(root->left);
-        if(balance(root))
-            return true;
-    bool y = check(root->right);
+    }
 
-    return (x || y);    //If any node present with balance factor > 0
+    // Выполняем поиск значения в дереве.
+    MyQueue<Tree*> que;
+    que.push(root);
+
+    while (!que.empty()) {
+        Tree* current = que.front();
+        que.pop();
+
+        if (current->key == value) {
+            return true; // Найдено значение.
+        }
+
+        if (current->left){
+            que.push(current->left);
+        }
+        if (current->right) {
+            que.push(current->right);
+        }
+    }
+    return false; // Значение не найдено.
 }
 
-void CBTree :: accept(int value, TreeNode* root) {
 
-    temp->data = value;
-    root = insert(root, temp);
-
+// Функция для вычисления высоты дерева.
+int maxDepth(Tree* root) {
+    if (!root){
+        return 0;
+    }
+    return 1 + max(maxDepth(root->left), maxDepth(root->right));
 }
 
-TreeNode* CBTree :: insert(TreeNode* root,TreeNode* temp) {
-    //Inserting a node in the tree
-    if(root == nullptr)
-        return temp;
-    else if(balance(root)==0 && check(root->right))  //Condition to insert node in the right sub-tree
-        root->right = insert(root->right,temp);
-    else if(balance(root)==0)                      //condition to insert node in the left sub-tree
-        root->left = insert(root->left,temp);
-    else if(balance(root)==1 && check(root->left))   //condition to insert node in the left sub-tree
-        root->left = insert(root->left,temp);
-    else if(balance(root)==1)
-        root->right = insert(root->right,temp);      //condition to insert node in right sub-tree
+// Функция для подсчета всех узлов дерева (не nullptr).
+int countNodes(Tree* root) {
+    if (!root){
+        return 0;
+    }
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+
+// Проверка, является ли дерево полным бинарным.
+bool isCompleteBinaryTree(Tree* root) {
+    if (!root){
+        return true; // Пустое дерево является полным.
+    }
+
+    int depth = maxDepth(root);          // Максимальная глубина дерева.
+    int totalNodes = countNodes(root);   // Общее количество узлов.
+
+    // Максимально возможное количество узлов для данной глубины.
+    int maxNodes = pow(2, depth) - 1;
+
+    // Дерево полно, если общее количество узлов соответствует \(2^h - 1\).
+    return totalNodes == maxNodes;
+}
+
+
+Tree* treeFromString(const string& input) {
+    // Разбиваем строку по запятым
+    arr<string> elements = splitToArr(input, ',');
+
+    if (elements.size == 0 || elements[0] == "nullptr"){
+        return nullptr;
+    }
+
+    // Создаем корень дерева
+    auto root = new Tree(elements[0]);
+    MyQueue<Tree*> que;
+    que.push(root);
+
+    int i = 1;
+    while (i < elements.size) {
+        Tree* current = que.front();
+        que.pop();
+
+        // Левый потомок
+        if (i < elements.size && elements[i] != "nullptr") {
+            current->left = new Tree(elements[i]);
+            que.push(current->left);
+        }
+        i++;
+
+        // Правый потомок
+        if (i < elements.size && elements[i] != "nullptr") {
+            current->right = new Tree(elements[i]);
+            que.push(current->right);
+        }
+        i++;
+    }
 
     return root;
 }
 
-void CBTree :: display(TreeNode *root)
-{
-    //Traversing the tree in InOrder way using recursion
-    if(root == NULL)
-        return;
-    display(root->left);
-    cout<<root->data<<"\t";
-    display(root->right);
-}
-int CBTree :: height(TreeNode *r)
-{
-    if(r == NULL)
-        return 0;
-    else
-    {
-        int lheight = height(r->left)+1;
-        int rheight = height(r->right)+1;
-
-    return (lheight > rheight) ? lheight : rheight; //returns maximum height
-    }
-}
-
-int CBTree :: balance(TreeNode *r)
-{
-        if(r == NULL)
-            return 0;
-        int lHeight = height(r->left)+1;
-        int rHeight = height(r->right)+1;
-
-        return (lHeight - rHeight); //[Balance Factor = Height of Left Sub-Tree - Height of Right Sub-Tree]
-}
-
-string treeToString(TreeNode* root) {
-    if (!root) {
+string treeToString(Tree* root) {
+    if (!root){
         return "";
-    }
-    arr<int> result;
-    result.push_back(root->data);
-    treeToString(root->left);
-    treeToString(root->right);
+    }  // Если дерево пустое, возвращаем пустую строку.
 
-}
+    MyQueue<Tree*> que;
+    que.push(root);
 
-CBTree fromString(string str) {
-    arr<string> tempPairs = splitToArr(str, ",");
-    TreeNode* root = new TreeNode();
-    CBTree tree;
-    tree.accept(stoi(tempPairs.data[0]), root);
-    for (int i = 1; i < tempPairs.size; i++) {
-        arr<string> temp = splitToArr(tempPairs.data[i], " ");
-        for (int j = 0; j < temp.size; j++) {
-            if (temp.size % 2 == 1 && temp.size != j - 1) {
-                tree.accept(stoi(temp.data[j]), root->left);
-                tree.accept(stoi(temp.data[j + 1]), root->right);
-            } else {
-                tree.accept(stoi(temp.data[j]), root->left);
-            }
+    string result;
+
+    while (!que.empty()) {
+        Tree* current = que.front();
+        que.pop();
+
+        if (current) {
+            result += current->key + ","; // Добавляем значение текущего узла.
+            que.push(current->left);        // Добавляем левого потомка в очередь.
+            que.push(current->right);       // Добавляем правого потомка в очередь.
+        } else {
+            result += "nullptr,"; // Если узел отсутствует, добавляем "null".
         }
-
     }
 
-
-
-
-
+    return result;
 }
-
-
 

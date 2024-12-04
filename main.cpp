@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
                 }
                 break;
 
-            case Queue:
+            case MYQueue:
                 switch (commandRequest(request.query[0])) {
                     case QPUSH:
                         queuePush(request);
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
                         printQueue(request);
                         break;
                     default:
-                        throw runtime_error("Invalid queue command");
+                        throw runtime_error("Invalid MyQueue command");
                 }
                 break;
 
@@ -114,17 +114,20 @@ int main(int argc, char *argv[]) {
                 }
                 break;
 
-            case Tree:
+            case tree:
                 switch (commandRequest(request.query[0])) {
                     case TINSERT:
                         treeInsert(request);
-                    break;
-                    /*case TDEL:
-                        treeDel(request);
-                    break;
-                    case TGET:
-                        treeGet(request);
-                    break;*/
+                        break;
+                    case TCOMPLETE:
+                        treeComplete(request);
+                        break;
+                    case TSEARCH:
+                        treeSearch(request);
+                        break;
+                    case TPRINT:
+                        printTree(request);
+                        break;
                     default:
                         cout << "Invalid Tree command" << endl;
                 }

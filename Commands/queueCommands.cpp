@@ -1,5 +1,5 @@
 #include "queueCommands.h"
-#include "../Structures/queue.h"
+#include "../Structures/MyQueue.h"
 
 void printQueue(const request& request){
     ifstream file(request.file, ios::in);
@@ -15,7 +15,7 @@ void printQueue(const request& request){
             setting.getInfo(tempLine);
             if (setting.type == "#QUEUE") {
                 isDone = true;
-                queue<string> currentValue = splitToQueue(setting.data);
+                MyQueue < string > currentValue = splitToQueue(setting.data);
                 cout << setting.name << ": " << currentValue << endl;
             }
         }
@@ -29,7 +29,7 @@ void printQueue(const request& request){
             setting.getInfo(tempLine);
             if (setting.name == name && setting.type == "#QUEUE"){
                 isDone = true;
-                queue<string> currentValue = splitToQueue(setting.data);
+                MyQueue < string > currentValue = splitToQueue(setting.data);
                 cout << setting.name << ": " << currentValue << endl;
             }
         }
@@ -64,10 +64,10 @@ void queuePush(const request& request){ //QPUSH name value
 
         if (setting.name == name && !isDone && setting.type == "#QUEUE"){
             isDone = true;
-            queue<string> currentValue = splitToQueue(setting.data);
+            MyQueue < string > currentValue = splitToQueue(setting.data);
             currentValue.push(value);
             tempLine = setting.type + ';' + setting.name + ';' + unSplitQueue(currentValue);
-            currentValue.clear();
+
             buffer.push_back(tempLine);
         }
         else {
@@ -109,13 +109,13 @@ void queuePop(const request& request){ // QPOP name
         setting.getInfo(tempLine);
         if (setting.name == name && !isDone && setting.type == "#QUEUE"){
             isDone = true;
-            queue<string> currentValue = splitToQueue(setting.data);
+            MyQueue < string > currentValue = splitToQueue(setting.data);
             currentValue.pop();
             tempLine = setting.type + ';' + setting.name + ';' + unSplitQueue(currentValue);
             if (currentValue.head != nullptr){
                 buffer.push_back(tempLine);
             }
-            currentValue.clear();
+
         }
         else {
             buffer.push_back(tempLine);
@@ -150,9 +150,8 @@ void queueGet(const request& request){ //QGET name
         setting.getInfo(tempLine);
         if (setting.name == name && setting.type == "#QUEUE"){
             isDone = true;
-            queue<string> currentValue = splitToQueue(setting.data);
-            cout << currentValue.getFirst() << endl;
-            currentValue.clear();
+            MyQueue < string > currentValue = splitToQueue(setting.data);
+            cout << currentValue.front() << endl;
             break;
         }
     }
