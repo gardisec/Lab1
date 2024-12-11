@@ -35,7 +35,8 @@ struct sList {
     }
 
 };
-
+sList<string> splitToSList(const string &input);
+string unSplitSList(const sList<string>& input);
 template struct sList<int>;
 template struct sList<string>;
 

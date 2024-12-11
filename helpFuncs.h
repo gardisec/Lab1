@@ -15,7 +15,8 @@ enum commands{
     LPUSH, LDEL, LGET, LPRINT,
     QPUSH, QPOP, QGET, QPRINT,
     HSET, HGET, HDEL, HPRINT,
-    TINSERT, TCOMPLETE, TSEARCH, TPRINT
+    TINSERT, TCOMPLETE, TSEARCH, TPRINT,
+    lPUSH, lDEL, lGET, lPRINT
 };
 
 enum structures{
@@ -24,7 +25,8 @@ enum structures{
     MYQueue,
     stack,
     hashmap,
-    tree
+    tree,
+    slist
 };
 
 struct fileData{

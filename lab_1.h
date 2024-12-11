@@ -7,6 +7,7 @@
 #include "Commands/listCommands.h"
 #include "Commands/hashCommands.h"
 #include "Commands/treeCommands.h"
+#include "Commands/slistCommands.h"
 #include "Structures/Pair.h"
 #include "Structures/arr.h"
 

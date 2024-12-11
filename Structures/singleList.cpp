@@ -65,3 +65,31 @@ void sList<T>::headInsert(T value) {
     Node<T>* newFirst = new Node(value, this->head);
     this->head = newFirst;
 }
+
+sList<string> splitToSList(const string &input){
+    string word;
+    sList<string> output;
+    for (auto ch : input){
+        if (ch == ',') {
+            output.backInsert(word);
+            word = "";
+        }
+        else{
+            word += ch;
+        }
+    }
+    if (word != ""){
+        output.backInsert(word);
+    }
+    return output;
+}
+
+string unSplitSList(const sList<string>& input){
+    Node<string>* curr = input.head;
+    string output;
+    while (curr != nullptr){
+        output += curr->value + ',';
+        curr = curr->next;
+    }
+    return output;
+}

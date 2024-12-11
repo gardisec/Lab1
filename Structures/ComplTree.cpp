@@ -1,7 +1,7 @@
 #include "ComplTree.h"
 
 
-void Tree ::printTree() {
+void Tree::printTree() {
     if (!this) return;
 
     MyQueue<Tree*> que;
@@ -11,16 +11,33 @@ void Tree ::printTree() {
         Tree* current = que.front();
         que.pop();
 
-        cout << current->key << " ";
+        // Выводим родительский узел
+        cout << current->key;
 
-        if (current->left){
+        // Если у текущего узла есть левый потомок, выводим его
+        if (current->left) {
+            cout << " -> " << current->left->key;
+        } else {
+            cout << " -> nullptr";
+        }
+
+        // Если у текущего узла есть правый потомок, выводим его
+        if (current->right) {
+            cout << "," << current->right->key;
+        } else {
+            cout << ", nullptr";
+        }
+
+        cout << endl;
+
+        // Добавляем в очередь дочерние элементы для дальнейшего обхода
+        if (current->left) {
             que.push(current->left);
         }
-        if (current->right){
+        if (current->right) {
             que.push(current->right);
         }
     }
-    cout << endl;
 }
 
 void Tree :: insertToTree(const string& value) {

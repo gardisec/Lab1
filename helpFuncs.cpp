@@ -32,6 +32,11 @@ commands commandRequest(const string& request){
     if (request == "TSEARCH") return TSEARCH;
     if (request == "TPRINT") return TPRINT;
 
+    if (request == "lPUSH") return lPUSH;
+    if (request == "lDEL") return lDEL;
+    if (request == "lGET") return lGET;
+    if (request == "lPRINT") return lPRINT;
+
     throw runtime_error("This command isn't exist");
 }
 
@@ -42,7 +47,7 @@ structures structRequest(const char& input){
     if (input == 'S') return stack;
     if (input == 'H') return hashmap;
     if (input == 'T') return tree;
-
+    if (input == 'l') return slist;
 
     throw runtime_error("This structure is not exist");
 
@@ -55,6 +60,7 @@ structures getType(const string& typeInFile){
     if (typeInFile == "#STACK") return stack;
     if (typeInFile == "#HASHMAP") return hashmap;
     if (typeInFile == "#TREE") return tree;
+    if (typeInFile == "#SLIST") return slist;
     throw runtime_error("This structure isn't exist");
 }
 

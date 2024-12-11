@@ -103,6 +103,18 @@ build CMakeFiles/Lab1.dir/Commands/listCommands.cpp.obj: CXX_COMPILER__Lab1_unsc
   OBJECT_DIR = CMakeFiles\Lab1.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab1.dir\Commands
 
+build CMakeFiles/Lab1.dir/Commands/slistCommands.cpp.obj: CXX_COMPILER__Lab1_unscanned_Debug C$:/Users/gardiex/Desktop/projects/Lab1/Commands/slistCommands.cpp || cmake_object_order_depends_target_Lab1
+  DEP_FILE = CMakeFiles\Lab1.dir\Commands\slistCommands.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Lab1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab1.dir\Commands
+
+build CMakeFiles/Lab1.dir/Structures/singleList.cpp.obj: CXX_COMPILER__Lab1_unscanned_Debug C$:/Users/gardiex/Desktop/projects/Lab1/Structures/singleList.cpp || cmake_object_order_depends_target_Lab1
+  DEP_FILE = CMakeFiles\Lab1.dir\Structures\singleList.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Lab1.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab1.dir\Structures
+
 build CMakeFiles/Lab1.dir/Structures/Pair.cpp.obj: CXX_COMPILER__Lab1_unscanned_Debug C$:/Users/gardiex/Desktop/projects/Lab1/Structures/Pair.cpp || cmake_object_order_depends_target_Lab1
   DEP_FILE = CMakeFiles\Lab1.dir\Structures\Pair.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
@@ -147,7 +159,7 @@ build CMakeFiles/Lab1.dir/Commands/treeCommands.cpp.obj: CXX_COMPILER__Lab1_unsc
 #############################################
 # Link the executable Lab1.exe
 
-build Lab1.exe: CXX_EXECUTABLE_LINKER__Lab1_Debug CMakeFiles/Lab1.dir/main.cpp.obj CMakeFiles/Lab1.dir/Commands/arrCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/arr.cpp.obj CMakeFiles/Lab1.dir/Commands/stackCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/Stack.cpp.obj CMakeFiles/Lab1.dir/Commands/queueCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/MyQueue.cpp.obj CMakeFiles/Lab1.dir/Structures/list.cpp.obj CMakeFiles/Lab1.dir/Commands/listCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/Pair.cpp.obj CMakeFiles/Lab1.dir/Structures/hashMap.cpp.obj CMakeFiles/Lab1.dir/Commands/hashCommands.cpp.obj CMakeFiles/Lab1.dir/helpFuncs.cpp.obj CMakeFiles/Lab1.dir/Structures/ComplTree.cpp.obj CMakeFiles/Lab1.dir/Commands/treeCommands.cpp.obj
+build Lab1.exe: CXX_EXECUTABLE_LINKER__Lab1_Debug CMakeFiles/Lab1.dir/main.cpp.obj CMakeFiles/Lab1.dir/Commands/arrCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/arr.cpp.obj CMakeFiles/Lab1.dir/Commands/stackCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/Stack.cpp.obj CMakeFiles/Lab1.dir/Commands/queueCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/MyQueue.cpp.obj CMakeFiles/Lab1.dir/Structures/list.cpp.obj CMakeFiles/Lab1.dir/Commands/listCommands.cpp.obj CMakeFiles/Lab1.dir/Commands/slistCommands.cpp.obj CMakeFiles/Lab1.dir/Structures/singleList.cpp.obj CMakeFiles/Lab1.dir/Structures/Pair.cpp.obj CMakeFiles/Lab1.dir/Structures/hashMap.cpp.obj CMakeFiles/Lab1.dir/Commands/hashCommands.cpp.obj CMakeFiles/Lab1.dir/helpFuncs.cpp.obj CMakeFiles/Lab1.dir/Structures/ComplTree.cpp.obj CMakeFiles/Lab1.dir/Commands/treeCommands.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab1.dir

@@ -75,7 +75,6 @@ int main(int argc, char *argv[]) {
                         throw runtime_error("Invalid MyQueue command");
                 }
                 break;
-
             case list:
                 switch (commandRequest(request.query[0])) {
                     case LPUSH:
@@ -89,6 +88,25 @@ int main(int argc, char *argv[]) {
                         break;
                     case LPRINT:
                         printList(request);
+                        break;
+                    default:
+                        cout << "Invalid list command" << endl;
+                }
+                break;
+
+            case slist:
+                switch (commandRequest(request.query[0])) {
+                    case lPUSH:
+                        slistPush(request);
+                        break;
+                    case lDEL:
+                        slistDel(request);
+                        break;
+                    case lGET:
+                        slistGet(request);
+                        break;
+                    case lPRINT:
+                        printsList(request);
                         break;
                     default:
                         cout << "Invalid list command" << endl;

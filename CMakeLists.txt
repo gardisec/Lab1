@@ -13,6 +13,8 @@ add_executable(Lab1
         Structures/MyQueue.cpp
         Structures/list.cpp
         Commands/listCommands.cpp
+        Commands/slistCommands.cpp
+        Structures/singleList.cpp
         Structures/Pair.cpp
         Structures/hashMap.cpp
         Commands/hashCommands.cpp
