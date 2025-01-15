@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/Lab1.dir/Commands/arrCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/arrCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Commands/hashCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/hashCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Commands/listCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/listCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Commands/queueCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/queueCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Commands/slistCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/slistCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Commands/stackCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/stackCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Commands/treeCommands.cpp.o"
+  "CMakeFiles/Lab1.dir/Commands/treeCommands.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/ComplTree.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/ComplTree.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/MyQueue.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/MyQueue.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/Pair.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/Pair.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/Stack.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/Stack.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/arr.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/arr.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/hashMap.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/hashMap.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/list.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/list.cpp.o.d"
+  "CMakeFiles/Lab1.dir/Structures/singleList.cpp.o"
+  "CMakeFiles/Lab1.dir/Structures/singleList.cpp.o.d"
+  "CMakeFiles/Lab1.dir/helpFuncs.cpp.o"
+  "CMakeFiles/Lab1.dir/helpFuncs.cpp.o.d"
+  "CMakeFiles/Lab1.dir/main.cpp.o"
+  "CMakeFiles/Lab1.dir/main.cpp.o.d"
+  "Lab1"
+  "Lab1.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/Lab1.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
